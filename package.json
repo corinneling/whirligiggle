@@ -1,0 +1,11 @@
+{
+  "name": "whirligig",
+  "version": "1.0.0",
+  "description": "accessible, performant, mobile friendly carousel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
