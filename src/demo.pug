@@ -1,0 +1,20 @@
+
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title #{title}
+    meta(name="description", content=description)
+    link(href="./styles.css", rel="stylesheet")
+
+  body
+    h2.visually-hidden Carousel
+    p.visually-hidden 3 slides
+    .carousel
+      .slide.slide--one.lazy-img(aria-label="slide one of three" aria-hidden="false") slide 1
+      .slide.slide--two.lazy-img(aria-label="slide two of three" aria-hidden="true") slide 2
+      .slide.slide--three.lazy-img(aria-label="slide three of three" aria-hidden="true") slide 3
+      button.slider-button.prev(aria-label="no previous slide available" aria-disabled="true")
+      button.slider-button.next(aria-label="Next slide")
