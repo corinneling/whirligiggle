@@ -12,7 +12,7 @@ const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.p
 module.exports = {
   devtool: 'eval-source-map',
   mode: 'development',
-  entry: './src/index.js',
+  entry: './src/demo.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'js/[name]-[contenthash:8].js',

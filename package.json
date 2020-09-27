@@ -6,15 +6,15 @@
   "scripts": {
     "prestart": "rimraf dist/",
     "start": "npm-run-all -s scss -p server js:dev watch:scss",
-    "build": "npm-run-all -s scss js:prod",
-    "server": "node src/server",
+    "build": "npm-run-all -s scss js:build",
+    "server": "node server",
     "scss": "node-sass src/ -o dist/ --output-style compressed",
-    "js:prod": "webpack --colors --display-chunks --display-modules -p",
+    "js:build": "webpack --colors --display-chunks --display-modules -p",
     "js:dev": "webpack --colors --display-chunks -w",
     "watch:scss": "nodemon -e scss -x \"npm run scss\"",
     "test": "nyc --reporter=text --reporter=html mocha --require @babel/register './src/**/*spec.js'"
   },
-  "author": "",
+  "author": "Corinne",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.11.6",

@@ -1,21 +1,11 @@
-.carousel {
-	max-width: 40rem;
-	min-height: 18.75rem;
-	position: relative;
-	margin: 0 auto;
-}
-
-.slide {
+.whirli-slide {
 	width: 100%;
 	height: 100%;
-	position: absolute;
-	padding: 2rem 3rem;
 	box-sizing: border-box;
 	border: none;
-	border-radius: 0.5rem;
-	transition: all 300ms ease-in;
 	background-size: cover;
-	
+	transition: opacity 300ms ease-in;
+
 	&[aria-hidden="false"] {
 		opacity: 1;
 	}
@@ -23,110 +13,9 @@
 	&[aria-hidden="true"] {
 		opacity: 0;
 	}
-	
-	&.slide--one {
-		background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1608&q=80');
-		background-position-y: 50%;
-	}
-	
-	&.slide--two {
-		background-image: url('https://images.unsplash.com/photo-1542358935821-e4e9f3f3c15d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80');
-		background-position-y: bottom;
-	}
-	
-	&.slide--three {
-		background-image: url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=5184&q=80');
-	}
-	
-	&.lazy-img {	
-		&.slide--one,
-		&.slide--two, 
-		&.slide--three {
-			background-image: none;
-			background-color: #f2f2f2;
-			border: 1px solid #bbb;
-		}
-	}
-}
 
-
-.slider-button {
-	position: absolute;
-	top: 40%;
-	background-color: #092747;
-	border: 2px solid #092747;
-	padding: 0.5rem;
-	max-width: 40px;
-	border-radius: 0.25rem;
-	box-shadow: 0px 6px 8px -2px rgba(0, 0, 0, 0.5);
-	
-	&[aria-disabled="true"] {
+	&.whirli-lazy-img {	
+		background-image: none;
 		background-color: #f2f2f2;
-		box-shadow: 0px 6px 8px -2px rgba(0, 0, 0, 0);
 	}
-	
-	&.prev {
-		left: -0.5rem;
-		padding-right: 0.875rem;
-	}
-	
-	&.next {
-		right: -0.5rem;
-		padding-left: 0.875rem;
-	}
-	
-	&::after {
-		content: '';
-		display: block;
-		position: relative;
-		width: 0;
-		height: 0;
-		border-style: solid;
-	}
-	
-	&.prev::after {
-		border-width: 0.625rem 1rem 0.625rem 0;
-		border-color: transparent #fff transparent transparent;
-	}
-	
-	&.prev[aria-disabled="true"]::after,
-	&.prev[aria-disabled="true"]:hover::after {
-		border-color: transparent #bbb transparent transparent;
-	}
-	
-	&.prev:hover::after {
-		border-color: transparent #092747 transparent transparent;
-	}
-	
-	&.next::after {
-		border-width: 0.625rem 0 0.625rem 1rem;
-		border-color: transparent transparent transparent #fff;
-	}
-	
-	&.next[aria-disabled="true"]::after,
-	&.next[aria-disabled="true"]:hover::after  {
-		border-color: transparent transparent transparent #bbb;
-	}
-	
-	&.next:hover::after {
-		border-color: transparent transparent transparent #092747;
-	}
-	
-	&:hover {
-		background-color: #fff;
-		cursor: pointer;
-	}
-	
-	&[aria-disabled="true"]:hover {
-		background-color: #f2f2f2;
-		cursor: default;
-	}
-}
-
-.visually-hidden {
-	position: absolute;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
 }
