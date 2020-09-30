@@ -1,21 +1,21 @@
 .whirli-slide {
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-	border: none;
-	background-size: cover;
-	transition: opacity 300ms ease-in;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+  background-size: cover;
+  transition: opacity 300ms ease-in;
 
-	&[aria-hidden="false"] {
-		opacity: 1;
-	}
+  &[aria-hidden="false"] {
+    opacity: 1;
+  }
 
-	&[aria-hidden="true"] {
-		opacity: 0;
-	}
+  &[aria-hidden="true"] {
+    opacity: 0;
+  }
 
-	&.whirli-lazy-img {	
-		background-image: none;
-		background-color: #f2f2f2;
-	}
+  &.whirli-lazy-img {	
+    background-image: none;
+    background-color: #f2f2f2;
+  }
 }
