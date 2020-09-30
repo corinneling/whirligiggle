@@ -1,6 +1,4 @@
-import { lazyLoadImages } from './index';
-import { addMarkupToPage } from './markup';
-import { handleButtonNavigation, handleDotNavigation } from './navigation';
+import { init } from '../index';
 
 const data = {
   showDots: true,
@@ -26,7 +24,4 @@ const data = {
   }]
 }
 
-addMarkupToPage('whirli-carousel', data)
-handleButtonNavigation();
-handleDotNavigation();
-lazyLoadImages();
+init('whirli-carousel', data);
