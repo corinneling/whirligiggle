@@ -1,3 +1,10 @@
-exports.printMsg = function() {
-    console.log("This is a message from the demo package");
+import { lazyLoadImages } from './src/index';
+import { addMarkupToPage } from './src/markup';
+import { handleButtonNavigation, handleDotNavigation } from './src/navigation';
+
+export function init(elementId, data) {
+    addMarkupToPage(elementId, data)
+    if (data.showButtons) handleButtonNavigation();
+    if (data.showDots) handleDotNavigation();
+    lazyLoadImages();
 }
