@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.vscode/
+.nyc_output/
+coverage/
+src/demo.js
+src/demo.pug
+src/demo.scss
+src/index-spec.js
+server.js
