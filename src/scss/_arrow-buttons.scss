@@ -1,0 +1,77 @@
+.whirli-button {
+  position: absolute;
+  top: 40%;
+  background-color: $c-button-primary;
+  border: 2px solid $c-button-secondary;
+  padding: 0.5rem;
+  max-width: 40px;
+  border-radius: 50%;
+  box-shadow: 0px 6px 8px -2px rgba(0, 0, 0, 0.5);
+  display: none;
+
+  @media (min-width: $breakpoint-sm) {
+    display: block;
+  }
+  
+  &[aria-disabled="true"] {
+    background-color: $c-button-disabled-primary;
+    box-shadow: 0px 6px 8px -2px rgba(0, 0, 0, 0);
+  }
+  
+  &--prev {
+    left: -0.5rem;
+    padding-right: 0.875rem;
+  }
+  
+  &--next {
+    right: -0.5rem;
+    padding-left: 0.875rem;
+  }
+  
+  &::after {
+    content: '';
+    display: block;
+    position: relative;
+    width: 0;
+    height: 0;
+    border-style: solid;
+  }
+  
+  &--prev::after {
+    border-width: 0.625rem 1rem 0.625rem 0;
+    border-color: transparent $c-button-secondary transparent transparent;
+  }
+  
+  &--prev[aria-disabled="true"]::after,
+  &--prev[aria-disabled="true"]:hover::after {
+    border-color: transparent $c-button-disabled-secondary transparent transparent;
+  }
+  
+  &--prev:hover::after {
+    border-color: transparent $c-button-primary transparent transparent;
+  }
+  
+  &--next::after {
+    border-width: 0.625rem 0 0.625rem 1rem;
+    border-color: transparent transparent transparent $c-button-secondary;
+  }
+  
+  &--next[aria-disabled="true"]::after,
+  &--next[aria-disabled="true"]:hover::after  {
+    border-color: transparent transparent transparent $c-button-disabled-secondary;
+  }
+  
+  &--next:hover::after {
+    border-color: transparent transparent transparent $c-button-primary;
+  }
+  
+  &:hover {
+    background-color: $c-button-secondary;
+    cursor: pointer;
+  }
+  
+  &[aria-disabled="true"]:hover {
+    background-color: $c-button-disabled-primary;
+    cursor: default;
+  }
+}
