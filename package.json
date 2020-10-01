@@ -1,6 +1,6 @@
 {
   "name": "whirligiggle",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "accessible, performant, mobile friendly carousel",
   "main": "index.js",
   "scripts": {

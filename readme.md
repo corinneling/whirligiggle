@@ -1,4 +1,5 @@
-# whirligiggle
+# whirligiggle (work in progress)
+This package is a work in progress and not ready for production. We will update it to version 1.0.0 when it is ready.
 
 ## install & setup
 1. Run `npm i whirligiggle`
