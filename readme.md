@@ -1,6 +1,8 @@
 # whirligiggle (work in progress)
 This package is a work in progress and not ready for production. We will update it to version 1.0.0 when it is ready.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ef7c8b68-f63c-4e2a-8e3e-aebd230e5424/deploy-status)](https://app.netlify.com/sites/whirligiggle/deploys)
+
 ## install & setup
 1. Run `npm i whirligiggle`
 2. import carousel init function
