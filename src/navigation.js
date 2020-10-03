@@ -19,28 +19,39 @@ const disableButtons = (index, slides) => {
   }
 }
 
-const getCurrentIndex = (slides) => {
-  let currentIndex;
-  slides.forEach((slide, index) => {
-    const hiddenAttribute = slide.getAttribute('aria-hidden');
-    if (hiddenAttribute === 'false') currentIndex = index
-  });
-  return currentIndex;
+const setDots = (index, dots, originalIndex) => {
+  dots[originalIndex].setAttribute('aria-label', `navigate to slide ${originalIndex}`);
+  dots[originalIndex].classList.remove('whirli-dot--selected');
+  dots[index].setAttribute('aria-label', `slide ${index} selected`);
+  dots[index].classList.add('whirli-dot--selected');
 }
 
-const activateSlide = (slideToActivate, slides, currentIndex) => {
+const getCurrentIndex = (slides) => {
+  let originalIndex;
+  slides.forEach((slide, index) => {
+    const hiddenAttribute = slide.getAttribute('aria-hidden');
+    if (hiddenAttribute === 'false') originalIndex = index
+  });
+  return originalIndex;
+}
+
+const activateSlide = (slideToActivate, slides, originalIndex) => {
+  const arrows = document.querySelectorAll('.whirli-button');
+  const dots = document.querySelectorAll('.whirli-dot');
+
   if (slideToActivate !== undefined) {
     // hide current slide
-    slides[currentIndex].setAttribute('aria-hidden', true);
-    slides[currentIndex].removeAttribute('tabindex');
+    slides[originalIndex].setAttribute('aria-hidden', true);
+    slides[originalIndex].removeAttribute('tabindex');
 
     // make sure links on slide that will be hidden are not tabbable
     const slideLink = slides[currentIndex].querySelector('a');
     if (slideLink) slideLink.setAttribute('tabindex', '-1')
 
     // disable buttons if needed
-    const activateIndex = [...slides].indexOf(slideToActivate);
-    disableButtons(activateIndex, slides);
+    const activeIndex = [...slides].indexOf(slideToActivate);
+    if (dots) setDots(activeIndex, dots, originalIndex);
+    if (arrows) disableButtons(activeIndex, slides);
 
     // set active slide
     const activeSlideLink = slideToActivate.querySelector('a');
@@ -53,23 +64,23 @@ const activateSlide = (slideToActivate, slides, currentIndex) => {
 
 const navigateWithDots = (e) => {
   const slides = document.querySelectorAll('.whirli-slide');
-  const currentIndex = getCurrentIndex(slides)
+  const originalIndex = getCurrentIndex(slides)
   const slideClass = e.target.getAttribute('data-slide');
   const slideToActivate = document.querySelector(`.${slideClass}`);
 
-  activateSlide(slideToActivate, slides, currentIndex);
+  activateSlide(slideToActivate, slides, originalIndex);
 }
 
 const navigateWithButtons = (e) => {
   const slides = document.querySelectorAll('.whirli-slide');
-  const currentIndex = getCurrentIndex(slides)
+  const originalIndex = getCurrentIndex(slides)
   const slideToActivate = e.target.classList.contains('whirli-button--next')
-    ? slides[currentIndex + 1]
+    ? slides[originalIndex + 1]
     : e.target.classList.contains('whirli-button--prev')
-      ? slides[currentIndex - 1]
+      ? slides[originalIndex - 1]
       : null;
 
-  activateSlide(slideToActivate, slides, currentIndex);
+  activateSlide(slideToActivate, slides, originalIndex);
 }
 
 export function handleButtonNavigation() {
