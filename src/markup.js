@@ -1,4 +1,4 @@
-const carouselMarkup = (data) => {
+export const carouselMarkup = (data) => {
   const numberOfSlides = data.slides.length;
 
   return `

@@ -6,5 +6,5 @@ coverage/
 src/demo.js
 src/index.pug
 src/demo.scss
-src/index-spec.js
+src/spec/
 server.js
