@@ -14,15 +14,15 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url('https://images.pexels.com/photos/1191639/pexels-photo-1191639.jpeg');
+    background-image: url('https://images.pexels.com/photos/1191639/pexels-photo-1191639.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
     background-position-y: 60%;
   }
   
   &.whirli-slide--2 {
     display: flex;
     padding: 0;
-    background-image: url('https://images.pexels.com/photos/164470/pexels-photo-164470.jpeg');
-    background-position-y: 70%;
+    background-image: url('https://images.pexels.com/photos/96428/pexels-photo-96428.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
+    background-position-y: 60%;
   }
   
   &.whirli-slide--3 {
@@ -46,13 +46,14 @@ main {
   }
 
   & .column-right {
+    border-radius: 0.5rem;
     background-color: #222;
     color: #f2f2f2;
     padding: 2rem 1rem 2rem 3rem;
     width: 50%;
   
     @media (min-width: 30rem) {
-      width: 30%;
+      width: 20%;
     }
   }
 }
@@ -104,5 +105,26 @@ main {
 
   &:hover:after {
     height: 0.5em;
+  }
+}
+
+
+.attribute {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: #121212;
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 0 0 0.5rem 0;
+
+  a {
+    color: #fff;
+
+    &:hover {
+      background-color: hotpink;
+      color: #121212;
+    }
   }
 }

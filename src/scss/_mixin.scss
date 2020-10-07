@@ -1,0 +1,4 @@
+@mixin focus {
+  outline: none;
+	box-shadow: 0 0 0 0.125rem $c-focus-primary, 0 0 0 0.25rem $c-focus-secondary;
+}

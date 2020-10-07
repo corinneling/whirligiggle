@@ -9,3 +9,6 @@ src/demo.scss
 src/spec/
 server.js
 .circleci/
+jest.config.js
+.babelrc
+webpack.config.js

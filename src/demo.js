@@ -5,22 +5,33 @@ const data = {
   showButtons: true,
   slides: [{
     content: `
-      <h2 class="carousel-header carousel-header--block">sldie one</h2>
-      <p class="carousel-content carousel-content--block">some paragraph text for the demo</p>
+      <h2 class="carousel-header carousel-header--block">slide one</h2>
+      <div class="carousel-content carousel-content--block">some paragraph text for the demo</div>
+      <div class="attribute">
+        Background Photo by <a href="https://www.pexels.com/@mccutcheon?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">Sharon McCutcheon</a>
+      </div>
     `
   },{
     content: `
       <div class="column-right">
-        <h2>sldie two</h2>
+        <h2>slide two</h2>
         <ul>
           <li>point one</li>
           <li>point two</li>
           <li>point three</li>
         </ul>
       </div>
+      <div class="attribute">
+        Background Photo by <a href="https://www.pexels.com/@francesco-ungaro?utm_content=attributionCopyText&utm_medium=referral&utm_source=pexels">Francesco Ungaro</a>
+      </div>
     `
   },{
-    content: `<h2>sldie three</h2>`
+    content: `
+      <h2>slide three</h2>
+      <div class="attribute">
+        Background Photo by <a href="https://unsplash.com/@ctj?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Cecilie Johnsen</a>
+      </div>
+    `
   }]
 }
 

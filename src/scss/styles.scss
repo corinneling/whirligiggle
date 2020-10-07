@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'mixin';
 @import 'arrow-buttons';
 @import 'dots';
 
@@ -19,12 +20,17 @@
   background-size: cover;
   transition: opacity 300ms ease-in;
 
+  &[tabindex="0"]:focus {
+    @include focus();
+  }
+
   &[aria-hidden="false"] {
     opacity: 1;
   }
 
   &[aria-hidden="true"] {
     opacity: 0;
+    pointer-events: none;
   }
 
   &.whirli-lazy-img {	
