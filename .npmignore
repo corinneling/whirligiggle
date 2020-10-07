@@ -8,3 +8,4 @@ src/index.pug
 src/demo.scss
 src/spec/
 server.js
+.circleci/
