@@ -2,6 +2,7 @@ module.exports = {
   collectCoverage: true,
   collectCoverageFrom: [
     '<rootDir>/src/*.js',
+    "!<rootDir>/src/demo.js",
   ],
   moduleFileExtensions: ['js'],
   testPathIgnorePatterns: [
