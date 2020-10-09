@@ -21,7 +21,7 @@ export const carouselMarkup = (data) => {
           ${data.slides.map(function(slide, i) {
             const slideIndex = i + 1;
             return `
-                <button class="whirli-dot" data-slide="whirli-slide--${slideIndex}" aria-label="navigate to slide ${slideIndex}"></button>
+                <button class="whirli-dot" data-slide="whirli-slide--${slideIndex}" aria-label="go to slide ${slideIndex}"></button>
               `;
             }).join('')}
         </nav>`
