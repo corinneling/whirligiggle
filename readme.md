@@ -1,15 +1,29 @@
-# whirligiggle (work in progress)
-This package is a work in progress and not ready for production. We will update it to version 1.0.0 when it is ready.
+# whirligiggle (wip)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ef7c8b68-f63c-4e2a-8e3e-aebd230e5424/deploy-status)](https://app.netlify.com/sites/whirligiggle/deploys)
 
-## install & setup
+Like a whirligig, but a little more fun! :rainbow:
+
+This package is a work in progress and not ready for production. We will update it to version 1.0.0 when it is ready.
+
+
+- [install and setup](#install)
+- [parameters](#parameters)
+- [styles](#styles)
+- [slide content](#slide-content)
+- [to do](#TO-DO)
+
+---
+
+## install
 1. Run `npm i whirligiggle`
 2. import carousel init function
     - es5 `const init = require('whirligiggle').init;`
     - es6 `import { init } from 'whirligiggle';`
 
-### parameters
+---
+
+## parameters
 1. string: an element's id. The init function adds markup to the page by grabbing the id of an element on the page and adding the carousel markup to the inner html of that element. 
     - So first you need to add a `<div>` to you page with a unique id. For example add `<div id="whirli-caroulsel> </div>` to `index.html`
     - then pass that id value as the first parameter to `init`
@@ -45,8 +59,9 @@ This package is a work in progress and not ready for production. We will update 
       ```
    - now pass the data object to the init function `init('whirli-carousel', data)`
 
-### styles
-**TO DO: finish docs on styles once i figure out how styles will work.**
+---
+
+## styles
 
 - whirligigggle is currently dependent on sass. To set up sass for your project follow [this tutorial](https://dev.to/chrissiemhrk/how-to-setup-sass-in-your-project-2bo1)
 
@@ -67,6 +82,8 @@ This package is a work in progress and not ready for production. We will update 
     $c-button-primary: hotpink;
     ```
 
+---
+
 ## slide content
 - the content for each slide is completely customizable
 - Add whatever html elements and content you want to each slide via the data object (the second parameter for the init function)
@@ -84,4 +101,9 @@ This package is a work in progress and not ready for production. We will update 
     }
     ```
 
-    **TO DO: testing**
+---
+
+## TO DO: 
+- [ ] finish testing
+- [ ] touch events on mobile
+- [ ] add browser support to docs
