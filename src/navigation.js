@@ -34,11 +34,17 @@ const activateSlide = (slideToActivate, slides, currentIndex) => {
     slides[currentIndex].setAttribute('aria-hidden', true);
     slides[currentIndex].removeAttribute('tabindex');
 
+    // make sure links on slide that will be hidden are not tabbable
+    const slideLink = slides[currentIndex].querySelector('a');
+    slideLink.setAttribute('tabindex', '-1')
+
     // disable buttons if needed
     const activateIndex = [...slides].indexOf(slideToActivate);
     disableButtons(activateIndex, slides);
 
     // set active slide
+    const activeSlideLink = slideToActivate.querySelector('a');
+    activeSlideLink.setAttribute('tabindex', '0')
     slideToActivate.setAttribute('aria-hidden', false);
     slideToActivate.setAttribute('tabindex', 0);
     slideToActivate.focus()
@@ -78,4 +84,17 @@ export function handleDotNavigation() {
   dots.forEach((dot) => {
     dot.addEventListener('click', navigateWithDots)
   });
+}
+
+export function setSlideLinks() {
+  // make sure link on slides that are not showing are not tabbable
+  const slides = document.querySelectorAll('.whirli-slide');
+  slides.forEach((slide) => {
+    const slideLink = slide.querySelector('a');
+    slideLink.setAttribute('tabindex', '-1');
+  })
+
+  // make sure link on first slide are tabbable
+  const firstSlideLink = slides[0].querySelector('a');
+  firstSlideLink.setAttribute('tabindex', '0')
 }
