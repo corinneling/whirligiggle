@@ -45,13 +45,13 @@ const activateSlide = (slideToActivate, slides, originalIndex) => {
     slides[originalIndex].removeAttribute('tabindex');
 
     // make sure links on slide that will be hidden are not tabbable
-    const slideLink = slides[currentIndex].querySelector('a');
+    const slideLink = slides[originalIndex].querySelector('a');
     if (slideLink) slideLink.setAttribute('tabindex', '-1')
 
     // disable buttons if needed
     const activeIndex = [...slides].indexOf(slideToActivate);
-    if (dots) setDots(activeIndex, dots, originalIndex);
-    if (arrows) disableButtons(activeIndex, slides);
+    if (dots.length > 0) setDots(activeIndex, dots, originalIndex);
+    if (arrows.length > 0) disableButtons(activeIndex, slides);
 
     // set active slide
     const activeSlideLink = slideToActivate.querySelector('a');
