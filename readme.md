@@ -9,8 +9,8 @@ This package is a work in progress and not ready for production. We will update 
 - [install and setup](#install)
 - [parameters](#parameters)
 - [styles](#styles)
+- [supported browsers](#supported-browsers)
 - [to do](#TO-DO)
-
 
 ## Carousel Features
 The following features are available for all users including keyboard and screen reader users. To see them in action, check out the [demo site](https://whirligiggle.netlify.app/).
@@ -133,8 +133,13 @@ To add background images to each slide use the generated whirligiggle classes. E
 
 Check out how we set up styles for the carousel demo in our [demo.scss file](https://github.com/corinneling/whirligig/blob/master/src/demo.scss)
 
+## Supported Browsers
+
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera |
+| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+
 
 ## TO DO: 
 - [ ] finish testing
 - [ ] touch events on mobile
-- [ ] add browser support to docs

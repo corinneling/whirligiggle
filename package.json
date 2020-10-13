@@ -9,7 +9,7 @@
     "build": "npm-run-all -s scss js:build",
     "server": "node server",
     "scss": "node-sass src/ -o dist/ --output-style compressed",
-    "js:build": "webpack --colors --display-chunks --display-modules -p",
+    "js:build": "webpack --colors --display-chunks --display-modules -p --config webpack.config.js",
     "js:dev": "webpack --colors --display-chunks -w",
     "watch:scss": "nodemon -e scss -x \"npm run scss\"",
     "test": "jest ./src/spec/*.spec.js"
@@ -17,6 +17,7 @@
   "author": "Corinne",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@testing-library/dom": "^7.24.5",
