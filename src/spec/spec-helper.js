@@ -13,9 +13,11 @@ export function getCarouselDOM() {
     <div id="whirli-carousel">
       <div data-testid="slide-one" class="whirli-slide whirli-slide--1" aria-label="slide 1 of 3" aria-hidden="false">
         <h2>sldie one</h2>
+        <a href="#">link on slide one</a>
       </div>
       <div data-testid="slide-two" class="whirli-slide whirli-slide--2" aria-label="slide 2 of 3" aria-hidden="true">
         <h2>sldie two</h2>
+        <a href="#">link on slide two</a>
       </div>
       <div data-testid="slide-three" class="whirli-slide whirli-slide--3" aria-label="slide 3 of 3" aria-hidden="true">
         <h2>sldie three</h2>

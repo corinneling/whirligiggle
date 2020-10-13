@@ -62,7 +62,8 @@ describe('add markup to page', () => {
 
   test('sets the first slide class to whirli-slide--1', () => {
     const container = getMarkupDOM();
-    container.querySelector('#test-carousel').innerHTML = `${carouselMarkup(slideData)}`
+    const carousel = container.querySelector('#test-carousel');
+    carousel.innerHTML = `${carouselMarkup(slideData)}`;
     const slides = container.querySelectorAll('.whirli-slide');
     const [...slideClasses] = slides[0].classList;
     expect(slideClasses).toContain('whirli-slide--1');
@@ -70,7 +71,8 @@ describe('add markup to page', () => {
 
   test('sets the first slide aria-hidden to false', () => {
     const container = getMarkupDOM();
-    container.querySelector('#test-carousel').innerHTML = `${carouselMarkup(slideData)}`
+    const carousel = container.querySelector('#test-carousel');
+    carousel.innerHTML = `${carouselMarkup(slideData)}`;
     const slides = container.querySelectorAll('.whirli-slide');
     const slideAria = slides[0].getAttribute('aria-hidden');
     expect(slideAria).toBe('false');
@@ -78,7 +80,8 @@ describe('add markup to page', () => {
 
   test('sets the second slide aria-hidden to true', () => {
     const container = getMarkupDOM();
-    container.querySelector('#test-carousel').innerHTML = `${carouselMarkup(slideData)}`
+    const carousel = container.querySelector('#test-carousel');
+    carousel.innerHTML = `${carouselMarkup(slideData)}`;
     const slides = container.querySelectorAll('.whirli-slide');
     const slideAria = slides[1].getAttribute('aria-hidden');
     expect(slideAria).toBe('true');

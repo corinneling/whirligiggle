@@ -97,7 +97,7 @@ export function handleDotNavigation() {
   });
 }
 
-export function setSlideLinks() {
+export function setSlideLinkTabindex() {
   // make sure link on slides that are not showing are not tabbable
   const slides = document.querySelectorAll('.whirli-slide');
   slides.forEach((slide) => {

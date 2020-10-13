@@ -1,6 +1,6 @@
 import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/dom'
-import { handleButtonNavigation, handleDotNavigation } from '../navigation';
+import { handleButtonNavigation, handleDotNavigation, setSlideLinkTabindex } from '../navigation';
 import { getCarouselDOM } from './spec-helper';
 
 describe('Carousel Navigation', () => {
@@ -113,6 +113,22 @@ describe('Carousel Navigation', () => {
       userEvent.click(dotOne)
       expect(slideOne).toHaveAttribute('aria-hidden', 'false');
       expect(slideThree).toHaveAttribute('aria-hidden', 'true');
+    })
+  })
+
+  describe('Set slide link tabindex', () => {
+    test('sets the first slide tabindex to 0', () => {
+      getCarouselDOM();
+      setSlideLinkTabindex();
+      const slideOneLink = screen.getByText('link on slide one');
+      expect(slideOneLink).toHaveAttribute('tabindex', '0')
+    })
+
+    test('sets the second slide tabindex to -1', () => {
+      getCarouselDOM();
+      setSlideLinkTabindex();
+      const slideOneLink = screen.getByText('link on slide two');
+      expect(slideOneLink).toHaveAttribute('tabindex', '-1')
     })
   })
 })

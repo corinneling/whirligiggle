@@ -22,6 +22,7 @@ The following features are available for all users including keyboard and screen
 - removes focus from links on hidden slides so the tab order is not disrupted
 - the markup and background pictures for each slide is completely customizable
 - default styles, including colors, for the carousel can be overridden
+- links on slides that are hidden are not tabbable so tab order is not messed up
 
 
 ## Install
