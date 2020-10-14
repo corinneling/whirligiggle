@@ -72,6 +72,7 @@ const navigateWithDots = (e) => {
 }
 
 const navigateWithButtons = (e) => {
+  console.log('hi');
   const slides = document.querySelectorAll('.whirli-slide');
   const originalIndex = getCurrentIndex(slides)
   const slideToActivate = e.target.classList.contains('whirli-button--next')
