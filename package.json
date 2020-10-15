@@ -6,19 +6,21 @@
   "scripts": {
     "prestart": "rimraf dist/",
     "start": "npm-run-all -s scss -p server js:dev watch:scss",
-    "build": "npm-run-all -s scss js:build",
+    "build": "npm-run-all -s scss build:wepback",
     "server": "node server",
     "scss": "node-sass src/ -o dist/ --output-style compressed",
-    "js:build": "webpack --colors --display-chunks --display-modules -p",
     "js:dev": "webpack --colors --display-chunks -w",
     "watch:scss": "nodemon -e scss -x \"npm run scss\"",
-    "test": "jest ./src/spec/*.spec.js"
+    "test": "jest ./src/spec/*.spec.js",
+    "build:wepback": "webpack --colors --display-chunks --display-modules -p",
+    "build:rollup": "rollup -c"
   },
   "author": "Corinne",
   "license": "ISC",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
+    "@rollup/plugin-babel": "^5.2.1",
     "@testing-library/dom": "^7.24.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/user-event": "^12.1.7",

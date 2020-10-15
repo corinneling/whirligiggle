@@ -1,4 +1,4 @@
-import { init } from '../index';
+const init = require('../bundle-rollup').init;
 
 const data = {
   showDots: true,

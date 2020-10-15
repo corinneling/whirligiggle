@@ -8,4 +8,5 @@ export function init(elementId, data) {
   if (data.showDots) handleDotNavigation();
   setSlideLinkTabindex();
   lazyLoadImages();
+  console.log('1')
 }
