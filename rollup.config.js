@@ -1,10 +1,11 @@
-import babel from '@rollup/plugin-babel';
+import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
  
 const config = {
   input: 'index.js',
-  output: {
+  output:     {
     file: 'bundle-rollup.js',
-    format: 'cjs'
+    format: 'esm',
+    plugins: [getBabelOutputPlugin({ presets: ['@babel/preset-env'] })]
   },
   plugins: [babel({ babelHelpers: 'bundled' })]
 };
