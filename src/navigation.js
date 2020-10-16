@@ -20,7 +20,7 @@ const disableButtons = (index, slides) => {
 }
 
 const setDots = (index, dots, originalIndex) => {
-  dots[originalIndex].setAttribute('aria-label', `navigate to slide ${originalIndex}`);
+  dots[originalIndex].setAttribute('aria-label', `go to slide ${originalIndex}`);
   dots[originalIndex].classList.remove('whirli-dot--selected');
   dots[index].setAttribute('aria-label', `slide ${index} selected`);
   dots[index].classList.add('whirli-dot--selected');
