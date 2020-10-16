@@ -3,7 +3,7 @@ import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
 const config = {
   input: 'index.js',
   output:     {
-    file: 'bundle-rollup.js',
+    dir: 'dist',
     format: 'esm',
     plugins: [getBabelOutputPlugin({ presets: ['@babel/preset-env'] })]
   },
