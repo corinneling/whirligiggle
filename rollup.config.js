@@ -1,4 +1,5 @@
 import babel, { getBabelOutputPlugin } from '@rollup/plugin-babel';
+import scss from 'rollup-plugin-scss'
 
 const config = {
   input: 'index.js',
@@ -7,7 +8,10 @@ const config = {
     format: 'esm',
     plugins: [getBabelOutputPlugin({ presets: ['@babel/preset-env'] })]
   },
-  plugins: [babel({ babelHelpers: 'bundled' })]
+  plugins: [
+    babel({ babelHelpers: 'bundled' }),
+    scss()
+  ]
 };
 
 export default config;
