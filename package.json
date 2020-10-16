@@ -12,12 +12,13 @@
     "js:dev": "webpack --colors --display-chunks -w",
     "watch:scss": "nodemon -e scss -x \"npm run scss\"",
     "test": "jest ./src/spec/*.spec.js",
-    "build:wepback": "webpack --colors --display-chunks --display-modules -p",
+    "build:wepback": "webpack --colors --display-chunks --display-modules -p --config webpack.config.js",
     "build:rollup": "rollup -c"
   },
   "author": "Corinne",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@babel/preset-env": "^7.11.5",
     "@rollup/plugin-babel": "^5.2.1",

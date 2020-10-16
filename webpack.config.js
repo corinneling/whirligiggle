@@ -1,17 +1,11 @@
 const path = require('path');
-const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const PATHS = {
-  src: path.join(__dirname, './src'),
-  dist: path.join(__dirname, './dist'),
-}
-const PAGES_DIR = `${PATHS.src}/`
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.pug'))
+const PRODUCTION = process.env.NODE_ENV === 'production';
 
 module.exports = {
   devtool: 'eval-source-map',
-  mode: 'development',
+  mode: PRODUCTION ? 'production' : 'development',
   entry: './src/demo.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -23,7 +17,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
         }
       },
       {
@@ -33,9 +27,9 @@ module.exports = {
     ]
   },
   plugins: [
-    ...PAGES.map(page => new HtmlWebpackPlugin({
-      template: `${PAGES_DIR}/${page}`,
-      filename: `./${page.replace(/\.pug/,'.html')}`
-    })),
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, './src/index.pug'),
+      filename: `./${'index.pug'.replace(/\.pug/,'.html')}`
+    }),
   ]
 };
