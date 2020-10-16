@@ -6,10 +6,8 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 module.exports = {
   devtool: 'eval-source-map',
   mode: PRODUCTION ? 'production' : 'development',
-  entry: './src/demo.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name]-[contenthash:8].js',
   },
   module: {
     rules: [

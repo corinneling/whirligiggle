@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "rimraf dist/",
     "start": "npm-run-all -s scss -p server js:dev watch:scss",
-    "build": "npm-run-all -s scss build:rollup",
+    "build": "npm-run-all -s scss build:wepback build:rollup",
     "server": "node server",
     "scss": "node-sass src/ -o dist/ --output-style compressed",
     "js:dev": "webpack --colors --display-chunks -w",
