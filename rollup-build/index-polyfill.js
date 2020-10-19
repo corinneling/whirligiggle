@@ -1,17 +1,15 @@
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function lazyLoadImages() {
   var lazyImages = document.querySelectorAll('.whirli-slide.whirli-lazy-img');
+
+  if (typeof IntersectionObserver === 'undefined') {
+    lazyImages.forEach(function (image) {
+      image.classList.remove('whirli-lazy-img');
+    });
+    return;
+  }
+
   var imageObs = new IntersectionObserver(function (entries, observe) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
@@ -91,8 +89,7 @@ var activateSlide = function activateSlide(slideToActivate, slides, originalInde
     var slideLink = slides[originalIndex].querySelector('a');
     if (slideLink) slideLink.setAttribute('tabindex', '-1'); // disable buttons if needed
 
-    var activeIndex = _toConsumableArray(slides).indexOf(slideToActivate);
-
+    var activeIndex = slides.indexOf(slideToActivate);
     if (dots.length > 0) setDots(activeIndex, dots, originalIndex);
     if (arrows.length > 0) disableButtons(activeIndex, slides); // set active slide
 
@@ -121,6 +118,7 @@ var navigateWithButtons = function navigateWithButtons(e) {
 
 function handleButtonNavigation() {
   var sliderButtons = document.querySelectorAll('.whirli-button');
+  console.log(_typeof(sliderButtons), 'typeeee');
   sliderButtons.forEach(function (button) {
     button.addEventListener('click', navigateWithButtons);
   });
@@ -143,6 +141,14 @@ function setSlideLinkTabindex() {
 
   var firstSlideLink = slides[0].querySelector('a');
   if (firstSlideLink) firstSlideLink.setAttribute('tabindex', '0');
+}
+
+if (typeof NodeList !== "undefined" && NodeList.prototype && !NodeList.prototype.forEach) {
+  NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
+if (typeof NodeList !== "undefined" && NodeList.prototype && !NodeList.prototype.indexOf) {
+  NodeList.prototype.indexOf = Array.prototype.indexOf;
 }
 
 function init(elementId, data) {
