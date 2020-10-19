@@ -9,4 +9,3 @@ parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcel
 },{}],"Focm":[function(require,module,exports) {
 "use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.init=r;var e=require("./src/lazy-load"),s=require("./src/markup"),a=require("./src/navigation");function r(r,t){(0,s.addMarkupToPage)(r,t),t.showButtons&&(0,a.handleButtonNavigation)(),t.showDots&&(0,a.handleDotNavigation)(),(0,a.setSlideLinkTabindex)(),(0,e.lazyLoadImages)()}require("./src/scss/styles.scss");
 },{"./src/lazy-load":"mUCT","./src/markup":"rW4W","./src/navigation":"ioUY","./src/scss/styles.scss":"XN8R"}]},{},["Focm"], null)
-//# sourceMappingURL=/index.js.map

@@ -7,7 +7,7 @@
     "scss": "node-sass src/ -o dist/ --output-style compressed",
     "test": "jest ./src/spec/*.spec.js",
     "build:rollup": "rollup -c",
-    "build:parcel": "parcel build index.js index-polyfill.js --out-dir parcel-build --no-cache"
+    "build:parcel": "parcel build index.js index-polyfill.js --out-dir parcel-build --no-cache --no-source-maps"
   },
   "author": "Corinne",
   "license": "ISC",
