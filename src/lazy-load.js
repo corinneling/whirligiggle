@@ -1,5 +1,13 @@
 export function lazyLoadImages() {
   const lazyImages = document.querySelectorAll('.whirli-slide.whirli-lazy-img')
+  
+  if (typeof IntersectionObserver === 'undefined') {
+    lazyImages.forEach((image) => {
+      image.classList.remove('whirli-lazy-img');
+    })
+
+    return;
+  }
 
   const imageObs = new IntersectionObserver((entries, observe) => {
     entries.forEach((entry) => {
