@@ -2,23 +2,26 @@
   "name": "whirligiggle",
   "version": "0.0.9",
   "description": "accessible, performant, mobile friendly carousel",
-  "main": "index.js",
+  "main": "./build/index.js",
   "scripts": {
     "prebuild": "rimraf build/",
-    "build": "npm-run-all -s scss js:build",
+    "build": "parcel build index.js --out-dir build --no-cache --no-source-maps",
     "test": "jest ./src/spec/*.spec.js"
   },
   "author": "Corinne",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.11.5",
     "@testing-library/dom": "^7.24.5",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/user-event": "^12.1.7",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^9.0.0",
     "babel-jest": "^26.5.2",
     "babel-loader": "^8.1.0",
+    "cssnano": "^4.1.10",
     "jest": "^26.5.2",
+    "postcss": "^8.1.2",
     "rimraf": "^3.0.2"
   },
   "dependencies": {
