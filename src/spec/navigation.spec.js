@@ -10,10 +10,13 @@ describe('Carousel Navigation', () => {
     let slideOne;
     let slideTwo;
     let slideThree;
+    let slides;
   
     beforeEach(() => {
       getCarouselDOM();
-      handleButtonNavigation();
+      slides = screen.getAllByText('slide');
+      handleButtonNavigation(slides);
+
       nextButton = screen.getByText('Next Slide');
       prevButton = screen.getByText('Previous Slide');
       slideOne = screen.getByTestId('slide-one');
@@ -84,10 +87,12 @@ describe('Carousel Navigation', () => {
     let slideOne;
     let slideTwo;
     let slideThree;
+    let slides;
   
     beforeEach(() => {
       getCarouselDOM();
-      handleDotNavigation();
+      slides = screen.getAllByText('slide');
+      handleDotNavigation(slides);
       dotOne = screen.getByText('Go to slide one');
       dotTwo = screen.getByText('Go to slide two');
       dotThree = screen.getByText('Go to slide three');
@@ -119,14 +124,16 @@ describe('Carousel Navigation', () => {
   describe('Set slide link tabindex', () => {
     test('sets the first slide tabindex to 0', () => {
       getCarouselDOM();
-      setSlideLinkTabindex();
+      const slides = screen.getAllByText('slide');
+      setSlideLinkTabindex(slides);
       const slideOneLink = screen.getByText('link on slide one');
       expect(slideOneLink).toHaveAttribute('tabindex', '0')
     })
 
     test('sets the second slide tabindex to -1', () => {
       getCarouselDOM();
-      setSlideLinkTabindex();
+      const slides = screen.getAllByText('slide');
+      setSlideLinkTabindex(slides);
       const slideOneLink = screen.getByText('link on slide two');
       expect(slideOneLink).toHaveAttribute('tabindex', '-1')
     })

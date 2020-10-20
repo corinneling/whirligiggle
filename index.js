@@ -13,8 +13,9 @@ if (typeof NodeList !== "undefined" && NodeList.prototype && !NodeList.prototype
 
 export function init(elementId, data) {
   addMarkupToPage(elementId, data)
-  if (data.showButtons) handleButtonNavigation();
-  if (data.showDots) handleDotNavigation();
-  setSlideLinkTabindex();
+  const slides = document.querySelectorAll('.whirli-slide');
+  if (data.showButtons) handleButtonNavigation(slides);
+  if (data.showDots) handleDotNavigation(slides);
+  setSlideLinkTabindex(slides);
   lazyLoadImages();
 }

@@ -62,8 +62,7 @@ const activateSlide = (slideToActivate, slides, originalIndex) => {
   } 
 }
 
-const navigateWithDots = (e) => {
-  const slides = document.querySelectorAll('.whirli-slide');
+const navigateWithDots = (e, slides) => {
   const originalIndex = getCurrentIndex(slides)
   const slideClass = e.target.getAttribute('data-slide');
   const slideToActivate = document.querySelector(`.${slideClass}`);
@@ -71,8 +70,7 @@ const navigateWithDots = (e) => {
   activateSlide(slideToActivate, slides, originalIndex);
 }
 
-const navigateWithButtons = (e) => {
-  const slides = document.querySelectorAll('.whirli-slide');
+const navigateWithButtons = (e, slides) => {
   const originalIndex = getCurrentIndex(slides)
   const slideToActivate = e.target.classList.contains('whirli-button--next')
     ? slides[originalIndex + 1]
@@ -83,23 +81,26 @@ const navigateWithButtons = (e) => {
   activateSlide(slideToActivate, slides, originalIndex);
 }
 
-export function handleButtonNavigation() {
+export function handleButtonNavigation(slides) {
   const sliderButtons = document.querySelectorAll('.whirli-button');
   sliderButtons.forEach((button) => {
-    button.addEventListener('click', navigateWithButtons)
+    button.addEventListener('click', function(e) {
+      navigateWithButtons(e, slides);
+    })
   });
 }
 
-export function handleDotNavigation() {
+export function handleDotNavigation(slides) {
   const dots = document.querySelectorAll('.whirli-dot');
   dots.forEach((dot) => {
-    dot.addEventListener('click', navigateWithDots)
+    dot.addEventListener('click', function(e) {
+      navigateWithDots(e, slides);
+    })
   });
 }
 
-export function setSlideLinkTabindex() {
+export function setSlideLinkTabindex(slides) {
   // make sure link on slides that are not showing are not tabbable
-  const slides = document.querySelectorAll('.whirli-slide');
   slides.forEach((slide) => {
     const slideLink = slide.querySelector('a');
     if (slideLink) slideLink.setAttribute('tabindex', '-1');
