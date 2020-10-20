@@ -20,6 +20,7 @@ export const carouselMarkup = (data) => {
         `<nav class="whirli-dot-nav">
           ${data.slides.map(function(slide, i) {
             const slideIndex = i + 1;
+            // console.log(slideIndex, 'hey');
             const dotAria = slideIndex === 1 ? `slide ${slideIndex} selected` : `go to slide ${slideIndex}`;
             const selected = slideIndex === 1 ? 'whirli-dot--selected' : '';
             return `

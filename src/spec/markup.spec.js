@@ -65,7 +65,7 @@ describe('add markup to page', () => {
     const carousel = container.querySelector('#test-carousel');
     carousel.innerHTML = `${carouselMarkup(slideData)}`;
     const slides = container.querySelectorAll('.whirli-slide');
-    const [...slideClasses] = slides[0].classList;
+    const slideClasses = slides[0].classList;
     expect(slideClasses).toContain('whirli-slide--1');
   })
 
