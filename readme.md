@@ -3,11 +3,15 @@ An accessible, performant, mobile friendly carousel. Like a whirligig, but a lit
 
 This package is a work in progress and not ready for production. We will update it to version 1.0.0 when it is ready.
 
-- [carousel features](#carousel-features)
-- [install and setup](#install)
-- [parameters](#parameters)
-- [styles](#styles)
-- [supported browsers](#supported-browsers)
+- [Carousel Features](#carousel-features)
+- [Install](#install)
+- [Parameters](#parameters)
+- [Styles](#styles)
+  - [Import Styles](#import-styles)
+  - [Colors](#colors)
+  - [Slide Background Images](#slide-background-images)
+- [Supported Browsers](#supported-browsers)
+  - [IE 11 Support](#IE-11-Support)
 - [to do](#TO-DO)
 
 
@@ -82,15 +86,32 @@ The following features are available for all users including keyboard and screen
 
 
 ## Styles
-whirligigggle is currently dependent on sass. To set up sass for your project follow [this tutorial](https://dev.to/chrissiemhrk/how-to-setup-sass-in-your-project-2bo1)
 
 ### Import Styles
-import our sass file with the following path `../node_modules/whirligiggle/src/scss/styles`. You can override our styles by creating a new sass file in your project. Import that sass file after the whirligiggle style file.
+There are a few options for using the whirligiggle styles
+
+- add `--include-path './node_modules'` to your scss script in your package.json
+   
+   example: `"scss": "node-sass src/ -o dist/ --output-style compressed --include-path './node_modules'"`
+   - then import our sass file into your base sass file like this
+    ```scss
+    // your base.scss
+    @import 'whirligiggle/src/scss/styles';
+    @import './src/scss/my-carousel-styles';
+    ```
+
+**or**
+
+- instead of messing with your sass script just import our sass file with the following path `../node_modules/whirligiggle/src/scss/styles`. You can override our styles by creating a new sass file in your project. Import that sass file after the whirligiggle style file.
   ```scss
   // your base.scss
   @import '../node_modules/whirligiggle/src/scss/styles';
   @import './src/scss/my-carousel-styles';
   ```
+
+**or**
+
+- use the compiled css file in `../node_modules/whirligiggle/build/index.css`, with includes autoprefixed css properties, in your project with the help of a tool like webpack to load it onto your site's page
 
 ### Colors
 Sass variables are used for this package's colors. To override colors check out what [variables we have](https://github.com/corinneling/whirligig/blob/master/src/scss/_variables.scss) and reset them in your project.
@@ -134,9 +155,12 @@ Check out how we set up styles for the carousel demo in our [demo.scss file from
 
 ## Supported Browsers
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Samsung | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png" alt="Opera" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Opera |
-| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
-| IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>IE / Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png" alt="iOS Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>iOS Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png" alt="Samsung" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/)<br/>Samsung |
+| --------- | --------- | --------- | --------- | --------- | --------- |
+| IE11, Edge| last 2 versions| last 2 versions| last 2 versions| last 2 versions| last 2 versions
+
+### IE 11 Support
+- a polyfill for IE 11 support is included with this npm package in the [index file](https://github.com/corinneling/whirligiggle/blob/main/index.js)
 
 ## TO DO: 
 - [ ] finish testing
