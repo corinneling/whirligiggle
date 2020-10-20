@@ -3,12 +3,7 @@ dist/
 .vscode/
 .nyc_output/
 coverage/
-src/demo.js
-src/index.pug
-src/demo.scss
 src/spec/
-server.js
 .circleci/
 jest.config.js
 .babelrc
-webpack.config.js

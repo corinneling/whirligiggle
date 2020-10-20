@@ -3,8 +3,6 @@ An accessible, performant, mobile friendly carousel. Like a whirligig, but a lit
 
 This package is a work in progress and not ready for production. We will update it to version 1.0.0 when it is ready.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ef7c8b68-f63c-4e2a-8e3e-aebd230e5424/deploy-status)](https://app.netlify.com/sites/whirligiggle/deploys)
-
 - [carousel features](#carousel-features)
 - [install and setup](#install)
 - [parameters](#parameters)
@@ -13,7 +11,7 @@ This package is a work in progress and not ready for production. We will update 
 
 
 ## Carousel Features
-The following features are available for all users including keyboard and screen reader users. To see them in action, check out the [demo site](https://whirligiggle.netlify.app/).
+The following features are available for all users including keyboard and screen reader users. To see them in action, check out the [demo site](https://whirligiggle-demo.netlify.app/).
 
 - arrow button navigation
 - dot button navigation 
@@ -131,7 +129,7 @@ To add background images to each slide use the generated whirligiggle classes. E
   @import './src/scss/my-carousel-styles';
   ```
 
-Check out how we set up styles for the carousel demo in our [demo.scss file](https://github.com/corinneling/whirligig/blob/master/src/demo.scss)
+Check out how we set up styles for the carousel demo in our [demo.scss file from the demo repo](https://github.com/corinneling/whirligiggle-demo/blob/main/src/demo.scss)
 
 
 ## TO DO: 
