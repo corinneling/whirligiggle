@@ -15,6 +15,7 @@ const config = [
       babel({ babelHelpers: 'bundled' }),
       scss({
         output: 'rollup-build/index.css',
+        outputStyle: "compressed",
         processor: css => postcss([autoprefixer()]),
       })
     ]
@@ -24,14 +25,7 @@ const config = [
       dir: 'rollup-build/',
       format: 'esm',
       plugins: [getBabelOutputPlugin({ presets: ['@babel/preset-env'] })]
-    },
-    plugins: [
-      babel({ babelHelpers: 'bundled' }),
-      scss({
-        output: 'rollup-build/index.css',
-        processor: css => postcss([autoprefixer()]),
-      })
-    ]
+    }
   }
 ];
 
