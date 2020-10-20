@@ -49,7 +49,7 @@ const activateSlide = (slideToActivate, slides, originalIndex) => {
     if (slideLink) slideLink.setAttribute('tabindex', '-1')
 
     // disable buttons if needed
-    const activeIndex = [...slides].indexOf(slideToActivate);
+    const activeIndex = slides.indexOf(slideToActivate);
     if (dots.length > 0) setDots(activeIndex, dots, originalIndex);
     if (arrows.length > 0) disableButtons(activeIndex, slides);
 
