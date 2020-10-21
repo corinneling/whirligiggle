@@ -1,7 +1,7 @@
 import userEvent from '@testing-library/user-event';
 import { screen } from '@testing-library/dom'
 import { handleButtonNavigation, handleDotNavigation, setSlideLinkTabindex } from '../navigation';
-import { getCarouselDOM } from './spec-helper';
+import { getCarouselWithArrows, getCarouselWithDots, getCarouselNoLink } from './spec-helper';
 
 describe('Carousel Navigation', () => {
   describe('Arrow Button Navigation', () => {
@@ -13,7 +13,7 @@ describe('Carousel Navigation', () => {
     let slides;
   
     beforeEach(() => {
-      getCarouselDOM();
+      getCarouselWithArrows();
       slides = screen.getAllByText('slide');
       handleButtonNavigation(slides);
 
@@ -28,6 +28,12 @@ describe('Carousel Navigation', () => {
       userEvent.click(nextButton)
       expect(slideOne).toHaveAttribute('aria-hidden', 'true');
       expect(slideTwo).toHaveAttribute('aria-hidden', 'false');
+    })
+
+    test('does nothing if selecting the previous button when the first slide is activated', () => {
+      userEvent.click(prevButton)
+      expect(slideOne).toHaveAttribute('aria-hidden', 'false');
+      expect(slideTwo).toHaveAttribute('aria-hidden', 'true');
     })
 
     test('updates aria-hidden of prev slide to false when prev button is clicked', () => {
@@ -90,7 +96,7 @@ describe('Carousel Navigation', () => {
     let slides;
   
     beforeEach(() => {
-      getCarouselDOM();
+      getCarouselWithDots();
       slides = screen.getAllByText('slide');
       handleDotNavigation(slides);
       dotOne = screen.getByText('Go to slide one');
@@ -122,16 +128,26 @@ describe('Carousel Navigation', () => {
   })
 
   describe('Set slide link tabindex', () => {
+    test('checks that the first slide exists', () => {
+      getCarouselNoLink();
+      const slides = screen.getAllByText('slide');
+      const slideTwoLink = screen.getByText('link on slide two');
+      setSlideLinkTabindex(slides);
+      expect(slideTwoLink).toHaveAttribute('tabindex', '-1')
+    })
+
     test('sets the first slide tabindex to 0', () => {
-      getCarouselDOM();
+      getCarouselWithArrows();
       const slides = screen.getAllByText('slide');
       setSlideLinkTabindex(slides);
       const slideOneLink = screen.getByText('link on slide one');
+      const slideTwoLink = screen.getByText('link on slide two');
       expect(slideOneLink).toHaveAttribute('tabindex', '0')
+      expect(slideTwoLink).toHaveAttribute('tabindex', '-1')
     })
 
     test('sets the second slide tabindex to -1', () => {
-      getCarouselDOM();
+      getCarouselWithArrows();
       const slides = screen.getAllByText('slide');
       setSlideLinkTabindex(slides);
       const slideOneLink = screen.getByText('link on slide two');
