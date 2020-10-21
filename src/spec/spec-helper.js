@@ -66,3 +66,20 @@ export function getCarouselNoLink() {
     </div>
   `
 }
+
+export function getLazyCarousel() {
+  return document.body.innerHTML = `
+    <div id="whirli-carousel">
+      <div data-testid="slide-one" class="whirli-slide whirli-slide--1 whirli-lazy-img" aria-label="slide 1 of 3" aria-hidden="false">slide
+        <h2>sldie one</h2>
+      </div>
+      <div data-testid="slide-two" class="whirli-slide whirli-slide--2 whirli-lazy-img" aria-label="slide 2 of 3" aria-hidden="true">slide
+        <h2>sldie two</h2>
+        <a href="#">link on slide two</a>
+      </div>
+      <button class="whirli-button whirli-button--prev" aria-label="no previous slide available" aria-disabled="true">Previous Slide</button>
+      <button class="whirli-button whirli-button--next" aria-label="next slide">Next Slide</button>
+    </div>
+  `
+}
+
