@@ -1,6 +1,7 @@
 import { lazyLoadImages } from './src/lazy-load';
 import { addMarkupToPage } from './src/markup';
 import { handleButtonNavigation, handleDotNavigation, setSlideLinkTabindex } from './src/navigation';
+import { handleTouch } from './src/touch';
 import './src/scss/styles.scss';
 
 if (typeof NodeList !== "undefined" && NodeList.prototype && !NodeList.prototype.forEach) {
@@ -18,4 +19,5 @@ export function init(elementId, data) {
   if (data.showDots) handleDotNavigation(slides);
   setSlideLinkTabindex(slides);
   lazyLoadImages();
+  handleTouch(elementId)
 }
