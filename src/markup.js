@@ -1,7 +1,14 @@
+import DOMPurify from 'dompurify';
+
+const sanitize = (strings, ...values) => {
+  const dirty = strings.reduce((prev, next, i) => `${prev}${next}${values[i] || ''}`, '');
+  return DOMPurify.sanitize(dirty);
+}
+
 export const carouselMarkup = (data) => {
   const numberOfSlides = data.slides.length;
 
-  return `
+  return sanitize`
     ${data.slides.map(function(slide, i) {
       const slideIndex = i + 1;
       return `

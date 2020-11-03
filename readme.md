@@ -24,6 +24,7 @@ The following features are available for all users including keyboard and screen
 - focus added to the slide once it is navigated to with an aria-label to notify users what slide they are on
 - removes focus from links on hidden slides so the tab order is not disrupted
 - the markup and background pictures for each slide is completely customizable
+   - the markup, which is added via template strings, is sanitized
 - default styles, including colors, for the carousel can be overridden
 - links on slides that are hidden are not tabbable so tab order is not messed up
 
